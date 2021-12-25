@@ -40,21 +40,39 @@ public class Solution {
         }
     }
 
-  
+    // Complete the printLinkedList function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
     static void printLinkedList(SinglyLinkedListNode head) {
-        if(head==null)
-        {
-            return;
-        }
-        else
-        {
-            while(head !=null)
-            {
-                System.out.println(head.data);
-                head = head.next;
-            }
-        }
+
 
     }
 
     private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        SinglyLinkedList llist = new SinglyLinkedList();
+
+        int llistCount = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < llistCount; i++) {
+            int llistItem = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+            llist.insertNode(llistItem);
+        }
+
+        printLinkedList(llist.head);
+
+        scanner.close();
+    }
+}
