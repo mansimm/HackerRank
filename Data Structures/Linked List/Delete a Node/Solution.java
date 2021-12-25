@@ -103,3 +103,32 @@ class Result {
 }
 
 public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        SinglyLinkedList llist = new SinglyLinkedList();
+
+        int llistCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, llistCount).forEach(i -> {
+            try {
+                int llistItem = Integer.parseInt(bufferedReader.readLine().trim());
+
+                llist.insertNode(llistItem);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        int position = Integer.parseInt(bufferedReader.readLine().trim());
+
+        SinglyLinkedListNode llist1 = Result.deleteNode(llist.head, position);
+
+        SinglyLinkedListPrintHelper.printList(llist1, " ", bufferedWriter);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
