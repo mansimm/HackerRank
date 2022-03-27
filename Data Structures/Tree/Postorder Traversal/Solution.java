@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+
+class Node {
+    Node left;
+    Node right;
+    int data;
+    
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
+
+class Solution {
+
+    public static void postOrder(Node root) {
+        if(root==null)
+        {
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+        
+
+    }
+
+	public static Node insert(Node root, int data) {
